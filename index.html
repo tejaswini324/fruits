@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+        <title>Fruits | Responsive Website Landing Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="bg"></div>
+        <section>
+            <header>
+                <a href="#" class="logo">Fruits</a>
+                <div class="toggle"></div>
+                <ul class="navigation">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">What's New</a></li>
+                    <li><a href="#">Contact </a></li>
+                </ul>
+            </header>
+            <div class="content">
+                <div class="textBox">
+                    <h2>Eat Fresh Everyday</h2>
+                    <p>Fruit should be an important part of your daily diet. They are naturally good and contain vitamins and minerals that can help to keep you healthy. They can also help protect against some diseases.</p>
+                    <a href="https://www.betterhealth.vic.gov.au/health/healthyliving/fruit-and-vegetables" target="_blank" rel="noopener noreferrer">Learn More</a>
+                </div>
+                <div class="imgBox">
+                    <img src="/Images/apple.png" alt="image not found" class="fruits">
+                </div>
+            </div>
+            <ul class="thumb">
+                <li data-text="Apple" class="active"><img src="./Images/apple.png" onclick="imgChanger('./Images/apple.png');changeBgColor('#fc4a55')"></li>
+                <li data-text="Mango"><img src="./Images/mango.png" onclick="imgChanger('./Images/mango.png');changeBgColor('#ffcc02')"></li>
+                <li data-text="Watermelon"><img src="./Images/watermelon.png" onclick="imgChanger('./Images/watermelon.png');changeBgColor('#92ba3c')"></li>
+                <li data-text="Dragon Fruits"><img src="./Images/dragonFruits.png" onclick="imgChanger('./Images/dragonFruits.png');changeBgColor('#fb6cb2')"></li>
+                <li data-text="Pineapple"><img src="./Images/pineApple.png" onclick="imgChanger('./Images/pineApple.png');changeBgColor('#ffb42b')"></li>
+            </ul>
+
+            <ul class="sci">
+                <li ><a href="#"><img src="./Images/facebook.png"></a></li>
+                <li ><a href="#"><img src="./Images/twitter.png"></a></li>
+                <li ><a href="#"><img src="./Images/instagram.png"></a></li>
+            </ul>
+        </section>
+        <script>
+
+
+            let menuToggle = document.querySelector('.toggle');
+            // let menuToggle = document.querySelector('.navigation');
+            menuToggle.onclick = function(){
+                menuToggle.classList.toggle('active');
+                // navigation.classList.toggle('active');
+            }
+        
+            // change image on click
+            function imgChanger(anything){
+                document.querySelector('.fruits').src = anything;
+            }
+
+            // change background color
+            function changeBgColor(color){
+                const bg = document.querySelector('.bg');
+                bg.style.background = color;
+            }
+            //add active class in selected thumbnails
+            let el = document.querySelectorAll('.thumb li');
+            for (let i=0; i<el.length; i++){
+                el[i].onclick = function(){
+                    var c=0;
+                    while (c < el.length){
+                        el[c++].className='check';
+                    }
+                    el[i].className='class active';
+                }
+            }
+            
+        </script>
+    </body>
+</html>
